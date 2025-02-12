@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery 2006 Page</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        button { font-size: 16px; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <p id="message">Click the button!</p>
+    <button id="btn">Click Me</button>
+
+    <script>
+        $("#btn").click(function() {
+            $("#message").text("Button Clicked!");
+        });
+    </script>
+</body>
+</html>

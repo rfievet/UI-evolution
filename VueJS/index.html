@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vue 2014 Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Hello, {{ name }}!</h1>
+        <input type="text" v-model="name">
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: { name: "World" }
+        });
+    </script>
+</body>
+</html>

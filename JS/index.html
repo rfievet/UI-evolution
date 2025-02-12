@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive JS 1995 Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        button { font-size: 16px; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <p id="message">Click the button!</p>
+    <button onclick="changeText()">Click Me</button>
+
+    <script>
+        function changeText() {
+            document.getElementById("message").innerText = "Button Clicked!";
+        }
+    </script>
+</body>
+</html>
