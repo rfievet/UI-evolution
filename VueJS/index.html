@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Vue 2014 Example</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 </head>
+
 <body>
     <div id="app">
+        <!-- 
+        How This Works:
+        - Vue introduces a simple, reactive data-binding system (`v-model`).
+        - The `data` object manages the application state.
+        - Changes to the input field automatically update the UI without direct DOM manipulation.
+
+        Fixes Over jQuery:
+        - Eliminates direct DOM manipulation by using a declarative approach.
+        - Provides two-way data binding (`v-model`) for syncing input with state.
+        - Encourages component-based architecture (though not mandatory like in React).
+
+        Fixes Over React (Class Components Era):
+        - Easier syntax and a gentler learning curve compared to JSX in React.
+        - No need for extra build tools like Babel for basic use.
+        - Simpler state management without needing external libraries like Redux.
+
+        Limitations:
+        - Two-way data binding can become hard to track in large applications.
+        - Lacked flexibility for advanced state management (later improved with Vue Composition API).
+        - Vue 2 relied heavily on Options API, which could become verbose in complex apps.
+
+        What the Next Tech (Vue Composition API, React Hooks) Solved:
+        - Vue Composition API (2020) made state management and logic reuse more flexible.
+        - React Hooks (2019) eliminated the need for class components, making state easier to manage.
+        -->
         <h1>Hello, {{ name }}!</h1>
         <input type="text" v-model="name">
     </div>
@@ -17,4 +44,5 @@
         });
     </script>
 </body>
+
 </html>

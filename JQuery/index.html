@@ -1,22 +1,54 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>jQuery 2006 Page</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        body { text-align: center; font-family: Arial, sans-serif; }
-        button { font-size: 16px; padding: 10px; }
+        /* 
+        How This Works:
+        - jQuery simplifies JavaScript interactions with the DOM.
+        - The `$` function is used to select elements (`$("#btn")`) and apply event listeners.
+        - The `.click()` function handles user clicks and modifies the text content of `#message`.
+
+        Fixes Over Vanilla JavaScript:
+        - Simplifies DOM selection and manipulation (`$("#id")` vs `document.getElementById("id")`).
+        - Provides cross-browser compatibility (JavaScript behaviors differed across browsers).
+        - Reduces boilerplate code and improves readability.
+
+        Limitations:
+        - Still imperative programming: Code remains procedural rather than component-based.
+        - Performance issues in large applications due to frequent DOM manipulation.
+        - No built-in structure for managing state or UI updates efficiently.
+        - Can lead to spaghetti code in complex applications.
+
+        What the Next Tech (AngularJS) Solved:
+        - Introduced a structured framework with two-way data binding.
+        - Allowed declarative programming (less manual DOM manipulation).
+        - Separated concerns with controllers, templates, and models for better maintainability.
+        */
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            font-size: 16px;
+            padding: 10px;
+        }
     </style>
 </head>
+
 <body>
     <h1>Hello, World!</h1>
     <p id="message">Click the button!</p>
     <button id="btn">Click Me</button>
 
     <script>
-        $("#btn").click(function() {
+        $("#btn").click(function () {
             $("#message").text("Button Clicked!");
         });
     </script>
 </body>
+
 </html>

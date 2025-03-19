@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Interactive JS 1995 Page</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        button { font-size: 16px; padding: 10px; }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        button {
+            font-size: 16px;
+            padding: 10px;
+        }
     </style>
 </head>
+
 <body>
+    <!--
+    How This Works:
+    - This page uses basic JavaScript to update text when the button is clicked.
+    - The `onclick` attribute in the button calls the `changeText` function.
+    - The function modifies the DOM (Document Object Model) using `getElementById`.
+
+    Limitations:
+    - Direct DOM manipulation is cumbersome and can lead to spaghetti code in large applications.
+    - No structured way to manage state, leading to inconsistent data handling.
+    - Hard to maintain and debug as applications grow.
+
+    What the Next Tech (jQuery) Solved:
+    - Simplified DOM manipulation using `$` selectors.
+    - Improved cross-browser compatibility.
+    - Reduced verbosity by providing helper functions for common tasks.
+    -->
     <h1>Hello, World!</h1>
     <p id="message">Click the button!</p>
     <button onclick="changeText()">Click Me</button>
@@ -18,4 +43,5 @@
         }
     </script>
 </body>
+
 </html>
