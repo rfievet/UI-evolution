@@ -4,27 +4,6 @@
 <head>
     <title>Styled HTML + CSS (1994) PAGE</title>
     <style>
-        /* 
-        How This Works:
-        - CSS is used to style the page by adding colors, fonts, and layout improvements.
-        - The `body` rule sets the font and background color.
-        - The `h1` rule changes the text color of the heading.
-
-        Fixes Over Plain HTML:
-        - Allowed separation of content (HTML) and presentation (CSS).
-        - Introduced design elements like colors, fonts, and positioning.
-        - Enabled better readability and aesthetic improvements.
-
-        Limitations:
-        - No interactivity: Users still cannot interact with the page.
-        - No dynamic content: Text and layout remain static.
-        - Required inline styles or `<style>` blocks in the HTML file (later solved by external CSS files).
-
-        What the Next Tech (JavaScript) Solved:
-        - Added interactivity, allowing elements to change dynamically.
-        - Enabled event handling (clicks, hovers, etc.).
-        - Introduced dynamic updates without reloading the page.
-        */
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
@@ -34,12 +13,50 @@
         h1 {
             color: blue;
         }
+        .styled-textbox {
+            width: 60%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid blue;
+            border-radius: 5px;
+            outline: none;
+            text-align: center;
+        }
+
+        .styled-textbox:focus {
+            border-color: darkblue;
+            box-shadow: 0 0 8px rgba(0, 0, 255, 0.5);
+        }
     </style>
 </head>
 
 <body>
+    <div class="info">
+        <h1>Hello, World!</h1>
 
-    <h1>Hello, World!</h1>
+        <h2>How This Works:</h2>
+        <p>CSS is used to style the page by adding colors, fonts, and layout improvements.</p>
+        <h2>Fixes Over Plain HTML:</h2>
+        <ul>
+            <li>Allowed separation of content (HTML) and presentation (CSS).</li>
+            <li>Introduced design elements like colors, fonts, and positioning.</li>
+            <li>Enabled better readability and aesthetic improvements.</li>
+        </ul>
+        <h2>Limitations:</h2>
+        <ul>
+            <li>No interactivity: Users still cannot interact with the page.</li>
+            <li>No dynamic content: Text and layout remain static.</li>
+            <li>Required inline styles or <code>&lt;style&gt;</code> blocks in the HTML file (later solved by external CSS files).</li>
+        </ul>
+        <h2>What the Next Tech (JavaScript) Solved:</h2>
+        <ul>
+            <li>Added interactivity, allowing elements to change dynamically.</li>
+            <li>Enabled event handling (clicks, hovers, etc.).</li>
+            <li>Introduced dynamic updates without reloading the page.</li>
+        </ul>
+    </div>
+
+    <input type="text" class="styled-textbox" placeholder="Type something here...">
     <p>This is a styled HTML page.</p>
 </body>
 

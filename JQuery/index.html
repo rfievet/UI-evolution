@@ -5,48 +5,70 @@
     <title>jQuery 2006 Page</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        /* 
-        How This Works:
-        - jQuery simplifies JavaScript interactions with the DOM.
-        - The `$` function is used to select elements (`$("#btn")`) and apply event listeners.
-        - The `.click()` function handles user clicks and modifies the text content of `#message`.
-
-        Fixes Over Vanilla JavaScript:
-        - Simplifies DOM selection and manipulation (`$("#id")` vs `document.getElementById("id")`).
-        - Provides cross-browser compatibility (JavaScript behaviors differed across browsers).
-        - Reduces boilerplate code and improves readability.
-
-        Limitations:
-        - Still imperative programming: Code remains procedural rather than component-based.
-        - Performance issues in large applications due to frequent DOM manipulation.
-        - No built-in structure for managing state or UI updates efficiently.
-        - Can lead to spaghetti code in complex applications.
-
-        What the Next Tech (AngularJS) Solved:
-        - Introduced a structured framework with two-way data binding.
-        - Allowed declarative programming (less manual DOM manipulation).
-        - Separated concerns with controllers, templates, and models for better maintainability.
-        */
+        
         body {
             text-align: center;
             font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
         }
 
         button {
             font-size: 16px;
             padding: 10px;
         }
+    .styled-textbox {
+        width: 60%;
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid blue;
+        border-radius: 5px;
+        outline: none;
+        text-align: center;
+    }
+
+    .styled-textbox:focus {
+        border-color: darkblue;
+        box-shadow: 0 0 8px rgba(0, 0, 255, 0.5);
+    }
     </style>
 </head>
 
 <body>
-    <h1>Hello, World!</h1>
+    <h1 id="dynamicHeader">Hello, World!</h1>
+    <div class="info">
+        <h2>How This Works:</h2>
+        <p>jQuery simplifies JavaScript interactions with the DOM.</p>
+
+        <h2>Fixes Over Vanilla JavaScript:</h2>
+        <ul>
+            <li>Simplifies DOM selection and manipulation using <code>$()</code>.</li>
+            <li>Improves cross-browser compatibility (JavaScript behaviors differed across browsers).</li>
+            <li>Reduces boilerplate code and improves readability.</li>
+        </ul>
+
+        <h2>Limitations:</h2>
+        <ul>
+            <li>Still imperative programming: Code remains procedural rather than component-based.</li>
+            <li>Performance issues in large applications due to frequent DOM manipulation.</li>
+            <li>No built-in structure for managing state or UI updates efficiently.</li>
+            <li>Can lead to spaghetti code in complex applications.</li>
+        </ul>
+
+        <h2>What the Next Tech (AngularJS) Solved:</h2>
+        <ul>
+            <li>Introduced a structured framework with two-way data binding.</li>
+            <li>Allowed declarative programming (less manual DOM manipulation).</li>
+            <li>Separated concerns with controllers, templates, and models for better maintainability.</li>
+        </ul>
+    </div>
+    <input type="text" id="styledTextbox" class="styled-textbox" placeholder="Type something here...">
     <p id="message">Click the button!</p>
     <button id="btn">Click Me</button>
 
     <script>
         $("#btn").click(function () {
-            $("#message").text("Button Clicked!");
+            const textboxValue = $("#styledTextbox").val();
+            $("#dynamicHeader").text(textboxValue || "Hello, World!");
         });
     </script>
 </body>

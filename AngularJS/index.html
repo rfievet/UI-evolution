@@ -4,34 +4,86 @@
 <head>
     <title>AngularJS 2010 Example</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        h1 {
+            color: blue;
+        }
+
+        .styled-textbox {
+            width: 60%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid blue;
+            border-radius: 5px;
+            outline: none;
+            text-align: center;
+        }
+
+        .styled-textbox:focus {
+            border-color: darkblue;
+            box-shadow: 0 0 8px rgba(0, 0, 255, 0.5);
+        }
+
+        button {
+            background-color: #3b82f6;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #2563eb;
+        }
+    </style>
 </head>
 
 <body ng-controller="MyController">
-    <!--
-    How This Works:
-    - AngularJS introduces two-way data binding (`ng-model`).
-    - The `ng-app` directive bootstraps the AngularJS application.
-    - The `ng-controller` directive binds the controller logic to the page.
-    - The `{{ name }}` syntax automatically updates when the input changes.
-
-    Limitations:
-    - Performance issues due to the way AngularJS tracks changes.
-    - Complex applications can become slow as the number of bindings increases.
-    - Learning curve: Requires understanding directives, scopes, and dependency injection.
-    - Harder to debug due to complex digest cycles.
-
-    What the Next Tech (React) Solved:
-    - Virtual DOM: Improved performance by reducing unnecessary re-renders.
-    - Component-based architecture: Encouraged modular, reusable UI elements.
-    - Unidirectional data flow: Made state management more predictable.
-    -->
-    <h1>Hello, {{ name }}!</h1>
-    <input type="text" ng-model="name">
+    <h1 id="dynamicHeader">Hello, {{ name }}!</h1>
+    <div>
+        <h2>How This Works:</h2>
+        <p>AngularJS introduces two-way data binding (`ng-model`).</p>
+        <p>The `ng-app` directive bootstraps the AngularJS application.</p>
+        <p>The `ng-controller` directive binds the controller logic to the page.</p>
+        <p>The `{{ name }}` syntax automatically updates when the input changes.</p>
+ 
+        <h2>Limitations:</h2>
+        <ul>
+            <li>Performance issues due to the way AngularJS tracks changes.</li>
+            <li>Complex applications can become slow as the number of bindings increases.</li>
+            <li>Learning curve: Requires understanding directives, scopes, and dependency injection.</li>
+            <li>Harder to debug due to complex digest cycles.</li>
+        </ul>
+ 
+        <h2>What the Next Tech (React) Solved:</h2>
+        <ul>
+            <li>Virtual DOM: Improved performance by reducing unnecessary re-renders.</li>
+            <li>Component-based architecture: Encouraged modular, reusable UI elements.</li>
+            <li>Unidirectional data flow: Made state management more predictable.</li>
+        </ul>
+    </div>
+    <input type="text" ng-model="textboxValue" class="styled-textbox" placeholder="Type something here...">
+    <p>{{ textboxValue }}</p>
+    <button ng-click="updateHeader()">Click Me</button>
 
     <script>
         var app = angular.module("myApp", []);
         app.controller("MyController", function ($scope) {
-            $scope.name = "World";
+        $scope.name = "World";
+        $scope.textboxValue = "Start typing above...";
+        
+        $scope.updateHeader = function() {
+            document.getElementById("dynamicHeader").innerText = $scope.textboxValue || "Hello, World!";
+        };
         });
     </script>
 </body>

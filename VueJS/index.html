@@ -4,43 +4,101 @@
 <head>
     <title>Vue 2014 Example</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        h1 {
+            color: blue;
+        }
+
+        .styled-textbox {
+            width: 60%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid blue;
+            border-radius: 5px;
+            outline: none;
+            text-align: center;
+        }
+
+        .styled-textbox:focus {
+            border-color: darkblue;
+            box-shadow: 0 0 8px rgba(0, 0, 255, 0.5);
+        }
+
+        button {
+            background-color: #3b82f6;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #2563eb;
+        }
+    </style>
 </head>
 
 <body>
     <div id="app">
-        <!-- 
-        How This Works:
-        - Vue introduces a simple, reactive data-binding system (`v-model`).
-        - The `data` object manages the application state.
-        - Changes to the input field automatically update the UI without direct DOM manipulation.
+        <h1>{{ dynamicHeader }}</h1>
+        <input type="text" v-model="textboxValue" class="styled-textbox" placeholder="Type something here...">
+        <button @click="updateHeader">Click Me</button>
+        <div>
+            <h2>How This Works:</h2>
+            <p>Vue introduces a simple, reactive data-binding system (<code>v-model</code>).</p>
+            <p>The <code>data</code> object manages the application state.</p>
+            <p>Changes to the input field automatically update the UI without direct DOM manipulation.</p>
 
-        Fixes Over jQuery:
-        - Eliminates direct DOM manipulation by using a declarative approach.
-        - Provides two-way data binding (`v-model`) for syncing input with state.
-        - Encourages component-based architecture (though not mandatory like in React).
+            <h2>Fixes Over jQuery:</h2>
+            <ul>
+                <li>Eliminates direct DOM manipulation by using a declarative approach.</li>
+                <li>Provides two-way data binding (<code>v-model</code>) for syncing input with state.</li>
+                <li>Encourages component-based architecture (though not mandatory like in React).</li>
+            </ul>
 
-        Fixes Over React (Class Components Era):
-        - Easier syntax and a gentler learning curve compared to JSX in React.
-        - No need for extra build tools like Babel for basic use.
-        - Simpler state management without needing external libraries like Redux.
+            <h2>Fixes Over React (Class Components Era):</h2>
+            <ul>
+                <li>Easier syntax and a gentler learning curve compared to JSX in React.</li>
+                <li>No need for extra build tools like Babel for basic use.</li>
+                <li>Simpler state management without needing external libraries like Redux.</li>
+            </ul>
 
-        Limitations:
-        - Two-way data binding can become hard to track in large applications.
-        - Lacked flexibility for advanced state management (later improved with Vue Composition API).
-        - Vue 2 relied heavily on Options API, which could become verbose in complex apps.
+            <h2>Limitations:</h2>
+            <ul>
+                <li>Two-way data binding can become hard to track in large applications.</li>
+                <li>Lacked flexibility for advanced state management (later improved with Vue Composition API).</li>
+                <li>Vue 2 relied heavily on Options API, which could become verbose in complex apps.</li>
+            </ul>
 
-        What the Next Tech (Vue Composition API, React Hooks) Solved:
-        - Vue Composition API (2020) made state management and logic reuse more flexible.
-        - React Hooks (2019) eliminated the need for class components, making state easier to manage.
-        -->
-        <h1>Hello, {{ name }}!</h1>
-        <input type="text" v-model="name">
+            <h2>What the Next Tech (Vue Composition API, React Hooks) Solved:</h2>
+            <ul>
+                <li>Vue Composition API (2020) made state management and logic reuse more flexible.</li>
+                <li>React Hooks (2019) eliminated the need for class components, making state easier to manage.</li>
+            </ul>
+        </div>
     </div>
 
     <script>
         new Vue({
             el: "#app",
-            data: { name: "World" }
+            data: {
+                dynamicHeader: "Hello, World!",
+                textboxValue: ""
+            },
+            methods: {
+                updateHeader() {
+                    this.dynamicHeader = this.textboxValue || "Hello, World!";
+                }
+            }
         });
     </script>
 </body>

@@ -7,39 +7,67 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
+            background-color: #f0f0f0;
         }
 
         button {
             font-size: 16px;
             padding: 10px;
         }
+        #styledTextbox {
+            width: 60%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid green;
+            border-radius: 5px;
+            outline: none;
+            text-align: center;
+        }
+
+        #styledTextbox:focus {
+            border-color: darkgreen;
+            box-shadow: 0 0 8px rgba(0, 128, 0, 0.5);
+        }
     </style>
 </head>
 
 <body>
-    <!--
-    How This Works:
-    - This page uses basic JavaScript to update text when the button is clicked.
-    - The `onclick` attribute in the button calls the `changeText` function.
-    - The function modifies the DOM (Document Object Model) using `getElementById`.
+    <!-- Comment block removed and replaced with visible content -->
+    <h1 id="dynamicHeader">Hello, World!</h1>
+    <div id="info">
+        <h2>How This Works:</h2>
+        <p>This page uses basic JavaScript to update text when the button is clicked.</p>
 
-    Limitations:
-    - Direct DOM manipulation is cumbersome and can lead to spaghetti code in large applications.
-    - No structured way to manage state, leading to inconsistent data handling.
-    - Hard to maintain and debug as applications grow.
+        <h2>Fixes Over Plain HTML + CSS:</h2>
+        <ul>
+            <li>Added interactivity by allowing users to trigger events like clicks.</li>
+            <li>Enabled dynamic updates to content without reloading the page.</li>
+        </ul>
 
-    What the Next Tech (jQuery) Solved:
-    - Simplified DOM manipulation using `$` selectors.
-    - Improved cross-browser compatibility.
-    - Reduced verbosity by providing helper functions for common tasks.
-    -->
-    <h1>Hello, World!</h1>
+        <h2>Limitations:</h2>
+        <ul>
+            <li>Direct DOM manipulation can lead to messy and hard-to-maintain code.</li>
+            <li>No structured way to manage state, leading to inconsistent data handling.</li>
+            <li>Hard to scale as applications grow.</li>
+        </ul>
+
+        <h2>What the Next Tech (jQuery) Solved:</h2>
+        <ul>
+            <li>Simplified DOM manipulation using `$` selectors.</li>
+            <li>Improved cross-browser compatibility.</li>
+            <li>Reduced verbosity by providing helper functions for common tasks.</li>
+        </ul>
+    </div>
+    <input type="text" id="styledTextbox" placeholder="Type something here...">
+
     <p id="message">Click the button!</p>
     <button onclick="changeText()">Click Me</button>
 
     <script>
         function changeText() {
-            document.getElementById("message").innerText = "Button Clicked!";
+            const textboxValue = document.getElementById("styledTextbox").value;
+            const headerElement = document.getElementById("dynamicHeader");
+            headerElement.innerText = textboxValue || "Hello, World!";
         }
     </script>
 </body>

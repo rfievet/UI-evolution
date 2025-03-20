@@ -44,9 +44,10 @@ This repository contains **self-contained examples** that demonstrate the transi
    - For React:
      ```bash
      cd React
-     npm install
-     npm start
+     npx serve
      ```
+
+     Then visit **[http://localhost:3000](http://localhost:3000)** in your browser.
    - For Vue:
      ```bash
      cd VueJS

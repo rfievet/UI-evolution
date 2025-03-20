@@ -6,6 +6,47 @@
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        h1 {
+            color: blue;
+        }
+
+        .styled-textbox {
+            width: 60%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid blue;
+            border-radius: 5px;
+            outline: none;
+            text-align: center;
+        }
+
+        .styled-textbox:focus {
+            border-color: darkblue;
+            box-shadow: 0 0 8px rgba(0, 0, 255, 0.5);
+        }
+
+        button {
+            background-color: #3b82f6;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #2563eb;
+        }
+    </style>
 </head>
 
 <body>
@@ -36,11 +77,52 @@
         */
         function App() {
             const [name, setName] = React.useState("World");
+            const [textboxValue, setTextboxValue] = React.useState("Start typing above...");
+
+            const updateHeader = () => {
+                setName(textboxValue || "Hello, World!");
+            };
 
             return (
                 <div>
                     <h1>Hello, {name}!</h1>
-                    <input type="text" onChange={(e) => setName(e.target.value)} />
+
+
+                    <div className="info">
+                        <h2>How This Works:</h2>
+                        <p>React introduces a component-based architecture.</p>
+                        <p>`useState` is used for managing state, eliminating the need for direct DOM manipulation.</p>
+                        <p>The `onChange` event updates the state and triggers re-rendering automatically.</p>
+                        <p>Virtual DOM optimizes updates by only changing what's necessary.</p>
+
+                        <h2>Fixes Over AngularJS:</h2>
+                        <ul>
+                            <li>Eliminated the need for complex digest cycles.</li>
+                            <li>Improved performance with Virtual DOM updates.</li>
+                            <li>Encouraged modular, reusable components for better scalability.</li>
+                        </ul>
+
+                        <h2>Limitations:</h2>
+                        <ul>
+                            <li>JSX introduces a learning curve (mixes HTML-like syntax with JavaScript).</li>
+                            <li>Requires a build process (Babel, Webpack) for modern React development.</li>
+                            <li>State management can get complex in large applications (later solved by Redux, Context API).</li>
+                        </ul>
+
+                        <h2>What the Next Tech (React Hooks, Vue Composition API) Solved:</h2>
+                        <ul>
+                            <li>React Hooks (2019) eliminated the need for class components, making state management more straightforward.</li>
+                            <li>Vue Composition API (2020) improved reactivity and logic reuse within Vue applications.</li>
+                        </ul>
+                    </div>
+                    <input
+                        type="text"
+                        className="styled-textbox"
+                        placeholder="Type something here..."
+                        value={textboxValue}
+                        onChange={(e) => setTextboxValue(e.target.value)}
+                    />
+                    <button onClick={updateHeader}>Click Me</button>
                 </div>
             );
         }
