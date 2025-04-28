@@ -5,7 +5,7 @@
 
 Welcome to **UI Evolution**, a brown bag session designed to walk through the history of web technologies—how they evolved, what problems they solved, and what new challenges they introduced.
 
-This repository contains a **series of progressively enhanced UI implementations**, starting from **pure HTML** to **modern frameworks like React, Vue, and Svelte**. Each step highlights key improvements and limitations, showing **why each new technology emerged**.
+This repository contains a **series of progressively enhanced UI implementations**, starting from **pure HTML** to **modern frameworks like Angular, React and Vue.** Each step highlights key improvements and limitations, showing **why each new technology emerged**.
 
 ## 📌 Why This Brown Bag?
 Understanding **why** technologies evolve helps us make better decisions when choosing frameworks or designing web applications. This session answers:
@@ -48,12 +48,7 @@ This repository contains **self-contained examples** that demonstrate the transi
      ```
 
      Then visit **[http://localhost:3000](http://localhost:3000)** in your browser.
-   - For Vue:
-     ```bash
-     cd VueJS
-     npm install
-     npm run serve
-     ```
+
 
 ## 📚 Session Objectives
 By the end of this brown bag, you will:

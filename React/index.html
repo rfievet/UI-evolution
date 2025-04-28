@@ -53,28 +53,6 @@
     <div id="root"></div>
 
     <script type="text/babel">
-        /*
-        How This Works:
-        - React introduces a component-based architecture.
-        - `useState` is used for managing state, eliminating the need for direct DOM manipulation.
-        - The `onChange` event updates the state and triggers re-rendering automatically.
-        - Virtual DOM optimizes updates by only changing what's necessary.
-
-        Fixes Over jQuery:
-        - Eliminates the need for direct DOM manipulation (`document.getElementById` in JavaScript, `$("#id")` in jQuery).
-        - Improves performance with a Virtual DOM that minimizes re-renders.
-        - Introduces a declarative approach: UI updates are automatically handled based on state.
-        - Encourages modular, reusable components.
-
-        Limitations:
-        - JSX introduces a learning curve (mixes HTML-like syntax with JavaScript).
-        - Requires a build process (Babel, Webpack) for modern React development.
-        - State management can get complex in large applications (later solved by Redux, Context API).
-
-        What the Next Tech (React Hooks, Vue Composition API) Solved:
-        - React Hooks (2019) eliminated the need for class components, making state management more straightforward.
-        - Vue Composition API (2020) improved reactivity and logic reuse within Vue applications.
-        */
         function App() {
             const [name, setName] = React.useState("World");
             const [textboxValue, setTextboxValue] = React.useState("Start typing above...");
